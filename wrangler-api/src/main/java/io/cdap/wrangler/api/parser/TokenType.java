@@ -75,7 +75,7 @@ public enum TokenType implements Serializable {
    * This type is associated with the token that either represents string 'true' or 'false'.
    */
   BOOLEAN,
-
+   
   /**
    * Represents the enumerated type for the object of type {@code BoolList} type.
    * This type is associated with the rule that is a collection of {@code Boolean} values
@@ -152,5 +152,8 @@ public enum TokenType implements Serializable {
    * Represents the enumerated type for the object of type {@code String} with restrictions
    * on characters that can be present in a string.
    */
-  IDENTIFIER
+  IDENTIFIER,
+  BYTE_SIZE,
+TIME_DURATION
+
 }
