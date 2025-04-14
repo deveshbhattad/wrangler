@@ -140,8 +140,13 @@ numberRange
  ;
 
 value
- : String | Number | Column | Bool
- ;
+: String
+| Number
+| Column
+| Bool
+| BYTE_SIZE
+| TIME_DURATION
+;
 
 ecommand
  : '!' Identifier
@@ -252,6 +257,13 @@ Bool
  : 'true'
  | 'false'
  ;
+BYTE_SIZE
+ : Int ('.' Digit*)? BYTE_UNIT
+ ;
+
+TIME_DURATION
+ : Int ('.' Digit*)? TIME_UNIT
+ ;
 
 Number
  : Int ('.' Digit*)?
@@ -279,6 +291,13 @@ EscapeSequence
    |   UnicodeEscape
    |   OctalEscape
    ;
+fragment BYTE_UNIT
+ : [kKmMgGtTpP] [bB]   // KB, MB, GB, etc.
+ ;
+
+fragment TIME_UNIT
+ : ('ms' | 's' | 'sec' | 'm' | 'min' | 'h' | 'hr')
+ ;
 
 fragment
 OctalEscape
